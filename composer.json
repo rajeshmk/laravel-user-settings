@@ -1,19 +1,19 @@
 {
-    "name": "rajesh/laravel-user-settings",
+    "name": "rajesh/laravel-settings",
     "description": "Application level and user level settings for Laravel application",
     "require": {
-        "php": "^7.3|^8.0",
-        "laravel/framework": "^8.29"
+        "php": "^8.0",
+        "laravel/framework": "^8.40"
     },
     "autoload": {
         "psr-4": {
-            "VocoLab\\AppConfig\\": "src/"
+            "VocoLab\\AppSetting\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "VocoLab\\AppConfig\\AppConfigServiceProvider"
+                "VocoLab\\AppSetting\\AppSettingServiceProvider"
             ]
         }
     },

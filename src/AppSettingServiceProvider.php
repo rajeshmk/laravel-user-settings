@@ -1,10 +1,10 @@
 <?php
 
-namespace VocoLab\AppConfig;
+namespace VocoLab\AppSetting;
 
 use Illuminate\Support\ServiceProvider;
 
-class VocoLabConfigServiceProvider extends ServiceProvider
+class AppSettingServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any package services.

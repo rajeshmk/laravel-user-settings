@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAppConfigsTable extends Migration
+return new class extends Migration
 {
     /**
      * The database schema.
@@ -40,7 +40,22 @@ class CreateAppConfigsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('voco_config_defaults', function (Blueprint $table) {
+            $table->id();
+            $table->string('config_key')->unique();
+            $table->text('default_value')->nullable();
+            $table->boolean('inheritable')->unsigned();
+            $table->timestamps();
+        });
+
+        Schema::create('voco_config_users', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('config_id')->constrained('voco_config_defaults');
+            $table->text('value')->nullable();
+            $table->timestamps();
+
+            $table->primary(['user_id', 'config_id']);
+        });
     }
 
     /**
@@ -50,6 +65,7 @@ class CreateAppConfigsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('voco_config_users');
+        Schema::dropIfExists('voco_config_defaults');
     }
 }
