@@ -68,4 +68,4 @@ return new class extends Migration
         Schema::dropIfExists('voco_config_users');
         Schema::dropIfExists('voco_config_defaults');
     }
-}
+};
